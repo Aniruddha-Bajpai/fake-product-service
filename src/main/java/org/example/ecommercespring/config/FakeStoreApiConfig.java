@@ -1,6 +1,6 @@
 package org.example.ecommercespring.config;
 
-import org.example.ecommercespring.repositories.FakeProductStore;
+import org.example.ecommercespring.services.FakeProductService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,8 +22,8 @@ public class FakeStoreApiConfig {
     }
 
     @Bean
-    public FakeProductStore getFakeProductServiceClient() {
-        return fakeStoreRetrofit().create(FakeProductStore.class);
+    public FakeProductService getFakeProductServiceClient() {
+        return fakeStoreRetrofit().create(FakeProductService.class);
     }
 
 }

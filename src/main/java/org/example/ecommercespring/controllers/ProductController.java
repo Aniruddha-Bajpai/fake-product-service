@@ -2,9 +2,8 @@ package org.example.ecommercespring.controllers;
 
 
 import org.example.ecommercespring.dto.Product;
-import org.example.ecommercespring.services.FakeProductService;
+import org.example.ecommercespring.services.ProductService;
 import org.springframework.web.bind.annotation.*;
-import retrofit2.http.Path;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,9 +12,9 @@ import java.util.List;
 @RequestMapping("/api/v1/fakeapi")
 public class ProductController {
 
-    private final FakeProductService fakeProductService;
+    private final ProductService fakeProductService;
 
-    public ProductController(FakeProductService fakeProductService) {
+    public ProductController(ProductService fakeProductService) {
         this.fakeProductService = fakeProductService;
     }
 

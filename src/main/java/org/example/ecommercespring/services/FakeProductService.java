@@ -1,38 +1,25 @@
 package org.example.ecommercespring.services;
 
 import org.example.ecommercespring.dto.Product;
-import org.example.ecommercespring.repositories.FakeProductStore;
-import org.springframework.stereotype.Service;
+import retrofit2.Call;
+import retrofit2.http.*;
 
-import java.io.IOException;
 import java.util.List;
 
-@Service
-public class FakeProductService  {
+public interface FakeProductService {
 
-    private final FakeProductStore fakeProductStore;
+    @GET("/products")
+    Call<List<Product>> getProducts();
 
-    public FakeProductService(FakeProductStore fakeProductService) {
-        this.fakeProductStore = fakeProductService;
-    }
+    @POST("/products")
+    Call<Product> createProduct(@Body Product product);
 
-    public List<Product> getProducts() throws IOException {
-        return fakeProductStore.getProducts().execute().body();
-    }
+    @GET("/products/{id}")
+    Call<Product> findProduct(@Path("id") Long id);
 
-    public Product getProductById(Long id) throws IOException {
-        return fakeProductStore.findProduct(id).execute().body();
-    }
+    @PUT("/products/{id}")
+    Call<Product> updateProduct(@Path("id") Long id, @Body Product product);
 
-    public Product createProduct(Product product) throws IOException{
-        return fakeProductStore.createProduct(product).execute().body();
-    }
-
-    public Product updateProduct(Long id, Product product) throws IOException{
-        return fakeProductStore.updateProduct(id, product).execute().body();
-    }
-
-    public Product deleteProduct(Long id) throws IOException {
-        return fakeProductStore.deleteProduct(id).execute().body();
-    }
+    @DELETE("/products/{id}")
+    Call<Product> deleteProduct(@Path("id") Long id);
 }
