@@ -22,8 +22,8 @@ public class FakeStoreApiConfig {
     }
 
     @Bean
-    public FakeProductService getFakeProductServiceClient() {
-        return fakeStoreRetrofit().create(FakeProductService.class);
+    public FakeProductService getFakeProductServiceClient(Retrofit retrofit) {
+        return retrofit.create(FakeProductService.class);
     }
 
 }

@@ -1,6 +1,8 @@
 package org.example.ecommercespring.services;
 
 import org.example.ecommercespring.dto.Product;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import retrofit2.Call;
 import retrofit2.http.*;
 
